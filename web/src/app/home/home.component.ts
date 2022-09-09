@@ -14,6 +14,15 @@ export class HomeComponent {
       this.students = result;
     }, error => console.error(error));
   }
+  getClass(grade) {
+    if (grade >= 50 && grade < 80) {
+      return 'text-warning'
+    } else if (grade < 50) {
+      return 'text-danger'
+    } else {
+      return 'text-success'
+    }
+  }
 }
 
 interface Student {

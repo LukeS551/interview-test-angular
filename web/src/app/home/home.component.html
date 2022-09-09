@@ -18,7 +18,7 @@
       <td>{{ student.lastName }}</td>
       <td>{{ student.email }}</td>
       <td>{{ student.major }}</td>
-      <td>{{ student.gradeAverage }}%</td>
+      <td [ngClass]="getClass(student.gradeAverage)">{{ student.gradeAverage }}%</td>
     </tr>
   </tbody>
 </table>

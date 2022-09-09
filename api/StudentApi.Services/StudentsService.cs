@@ -36,7 +36,7 @@ namespace StudentApi.Services
                 LastName = "Tannen",
                 Email = "biff@test.com",
                 Major = "PE",
-                GradeAverage = 45
+                GradeAverage = 65
             });
         }
 

@@ -11,14 +11,12 @@ export class StudentAddComponent {
   public students: Student[];
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
-    //construct post request
-    http.get<Student[]>(baseUrl + 'students').subscribe(result => {
-      this.students = result;
-    }, error => console.error(error));
+
   }
+
   onSubmit() {
     console.log('sub')
-    this.http.post(this.baseUrl + 'students', this.studForm.value).subscribe((result) => {
+    this.http.post(this.baseUrl + 'students', { 'test': 'test' }).subscribe((result) => {
       console.warn("result", result)
     })
   }
