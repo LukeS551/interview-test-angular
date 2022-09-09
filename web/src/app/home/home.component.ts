@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as internal from 'assert';
 
 @Component({
   selector: 'app-home',
@@ -21,4 +22,5 @@ interface Student {
   lastName: string;
   email: string;
   major: string;
+  grade: number;
 }

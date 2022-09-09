@@ -15,5 +15,7 @@ namespace StudentApi.Models.Students
         public string Email { get; set; }
 
         public string Major { get; set; }
+
+        public int GradeAverage { get; set; }
     }
 }
