@@ -1,6 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as internal from 'assert';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-student',
@@ -13,6 +14,18 @@ export class StudentAddComponent {
     http.get<Student[]>(baseUrl + 'students').subscribe(result => {
       this.students = result;
     }, error => console.error(error));
+  }
+  studForm = new FormGroup({
+    name: new FormGroup({
+      firstName: new FormControl(),
+      lastName: new FormControl()
+    }),
+    email: new FormControl(),
+    major: new FormControl(),
+    grade: new FormControl()
+  });
+  onSubmit() {
+    console.log(this.studForm.value)
   }
 }
 
