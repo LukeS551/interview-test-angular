@@ -19,8 +19,8 @@ Please enter/replace your details below.
 | - | - |
 | Name | John Smith |
 | Date | 2022-03-21 |
-| Start Time | 00:00+13:00 |
-| Finish Time | 02:15+13:00 |
+| Start Time | 13:00+13:00 |
+| Finish Time | 23:45+13:00 |
 
 ## Requirements
 In order to complete this test you will need the following tools:

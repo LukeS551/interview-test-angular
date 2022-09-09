@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.OpenApi.Any;
 
 namespace StudentApi.Controllers
 {
@@ -43,5 +44,11 @@ namespace StudentApi.Controllers
         /// Posts the submitted student
         /// </summary>
         /// <returns></returns>
-    }
+        [HttpPost]
+        public ActionResult<AnyType> Post()
+        {
+            Mediator.Send(new GetStudentsRequest());
+            return NotFound();
+        }
+}
 }

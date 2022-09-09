@@ -15,12 +15,12 @@ export class StudentAddComponent {
   }
 
   onSubmit() {
-    console.log('sub')
-    this.http.post(this.baseUrl + 'students', { 'test': 'test' }).subscribe((result) => {
+    console.log(this.http)
+    this.http.post<any>(this.baseUrl + 'students', this.studentForm.value).subscribe((result) => {
       console.warn("result", result)
     })
   }
-  studForm = new FormGroup({
+  studentForm = new FormGroup({
     name: new FormGroup({
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required)
