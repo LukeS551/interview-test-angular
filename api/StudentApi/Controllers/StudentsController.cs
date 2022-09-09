@@ -39,5 +39,16 @@ namespace StudentApi.Controllers
 
             return reponse.Students;
         }
+        /// <summary>
+        /// Gets the current students
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IEnumerable<Student>> Post()
+        {
+            var reponse = await Mediator.Send(new GetStudentsRequest());
+
+            return reponse.Students;
+        }
     }
 }

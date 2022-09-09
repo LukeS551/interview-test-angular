@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as internal from 'assert';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-student',
@@ -10,23 +10,28 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class StudentAddComponent {
   public students: Student[];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
+    //construct post request
     http.get<Student[]>(baseUrl + 'students').subscribe(result => {
       this.students = result;
     }, error => console.error(error));
   }
+  onSubmit() {
+    console.log('sub')
+    this.http.post(this.baseUrl + 'students', this.studForm.value).subscribe((result) => {
+      console.warn("result", result)
+    })
+  }
   studForm = new FormGroup({
     name: new FormGroup({
-      firstName: new FormControl(),
-      lastName: new FormControl()
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required)
     }),
-    email: new FormControl(),
-    major: new FormControl(),
-    grade: new FormControl()
+    email: new FormControl('', Validators.required),
+    major: new FormControl('', Validators.required),
+    gradeAverage: new FormControl('', Validators.required)
   });
-  onSubmit() {
-    console.log(this.studForm.value)
-  }
+
 }
 
 interface Student {
